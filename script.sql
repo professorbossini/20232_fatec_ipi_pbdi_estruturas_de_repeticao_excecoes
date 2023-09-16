@@ -1,3 +1,60 @@
+DO $$
+DECLARE
+	--RECORD: tipo para representar uma linha de uma linha
+	aluno RECORD;
+	media NUMERIC (10, 2) := 0;
+	total INT;
+BEGIN
+	FOR aluno IN
+		SELECT * FROM tb_aluno	
+	LOOP
+		--. é o operador de acesso a membro
+		RAISE NOTICE 'Nota(%): %', aluno.cod_aluno, aluno.nota;
+	END LOOP;
+END;
+$$
+
+
+-- SELECT * FROM tb_aluno;
+
+
+-- DO $$
+-- BEGIN
+-- 	--gerando notas
+-- 	FOR i IN 1..100 LOOP
+-- 		INSERT INTO tb_aluno (nota) VALUES(valor_aleatorio_entre(0, 10));
+-- 	END LOOP;
+-- END;
+-- $$
+
+
+-- CREATE TABLE tb_aluno(
+-- 	cod_aluno SERIAL PRIMARY KEY,
+-- 	nota INT
+-- );
+
+
+-- DO $$
+-- BEGIN
+-- 	--de 1 a 10, pulando de um em um
+-- 	FOR i IN 1..10 LOOP
+-- 		RAISE NOTICE '%', i;
+-- 	END LOOP;
+	
+-- 	FOR i IN 10..1 LOOP
+-- 		RAISE NOTICE '%', i;
+-- 	END LOOP;
+	
+-- 	FOR i IN REVERSE 10..1 LOOP
+-- 		RAISE NOTICE '%', i;
+-- 	END LOOP;
+	
+-- 	FOR i IN 1..50 BY 2 LOOP
+-- 		RAISE NOTICE '%', i;
+-- 	END LOOP;
+-- END;
+-- $$
+
 -- DO $$
 -- DECLARE
 -- 	nota INT;
