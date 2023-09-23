@@ -1,18 +1,41 @@
-DO $$
-DECLARE
-	--RECORD: tipo para representar uma linha de uma linha
-	aluno RECORD;
-	media NUMERIC (10, 2) := 0;
-	total INT;
-BEGIN
-	FOR aluno IN
-		SELECT * FROM tb_aluno	
-	LOOP
-		--. é o operador de acesso a membro
-		RAISE NOTICE 'Nota(%): %', aluno.cod_aluno, aluno.nota;
-	END LOOP;
-END;
-$$
+--foreach, iterando sobre os elementos de um array
+-- DO
+-- $$
+-- DECLARE
+-- 	valores INT[] := ARRAY[
+-- 		valor_aleatorio_entre(1, 10),
+-- 		valor_aleatorio_entre(1, 10),
+-- 		valor_aleatorio_entre(1, 10),
+-- 		valor_aleatorio_entre(1, 10),
+-- 		valor_aleatorio_entre(1, 10)		
+-- 	];
+-- 	valor INT;
+-- 	soma INT := 0;
+-- BEGIN
+-- 	FOREACH valor IN ARRAY valores LOOP
+-- 		RAISE NOTICE 'Valor da vez: %', valor;
+-- 		soma := soma + valor;
+-- 	END LOOP;
+-- 	RAISE NOTICE 'Soma: %', soma;
+-- END;
+-- $$
+
+
+-- DO $$
+-- DECLARE
+-- 	--RECORD: tipo para representar uma linha de uma linha
+-- 	aluno RECORD;
+-- 	media NUMERIC (10, 2) := 0;
+-- 	total INT;
+-- BEGIN
+-- 	FOR aluno IN
+-- 		SELECT * FROM tb_aluno	
+-- 	LOOP
+-- 		--. é o operador de acesso a membro
+-- 		RAISE NOTICE 'Nota(%): %', aluno.cod_aluno, aluno.nota;
+-- 	END LOOP;
+-- END;
+-- $$
 
 
 -- SELECT * FROM tb_aluno;
