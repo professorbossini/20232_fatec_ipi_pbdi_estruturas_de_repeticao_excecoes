@@ -1,3 +1,29 @@
+DO $$
+DECLARE
+	a INT := valor_aleatorio_entre(0, 5);
+BEGIN
+	IF a = 0 THEN
+		RAISE 'a não pode ser zero';
+		RAISE NOTICE 'Vejamos se chega aqui...';
+	ELSE
+		RAISE NOTICE 'Valor de a: %', a;
+	END IF;
+EXCEPTION WHEN OTHERS THEN
+	-- SQLState é o código da exceção
+	-- SQLERRM é a mensagem (SQL Error Message)
+	RAISE NOTICE 'SQLState: %, SQLERRM: %', SQLSTATE, SQLERRM;
+END;
+$$
+
+-- DO $$
+-- BEGIN
+-- 	RAISE NOTICE '%', 1 / 0;
+-- EXCEPTION
+-- 	WHEN division_by_zero THEN
+-- 		RAISE NOTICE 'Não é possível fazer divisão por zero';
+-- END;
+$$
+
 --FOREACH usando slices (fatias)
 -- DO $$
 -- DECLARE
