@@ -1,3 +1,43 @@
+--FOREACH usando slices (fatias)
+-- DO $$
+-- DECLARE
+-- 	vetor INT[] := ARRAY[1, 2, 3];
+-- 	matriz INT[] := ARRAY[
+-- 		[1, 2, 3],
+-- 		[4, 5, 6],
+-- 		[7, 8, 9]
+-- 	];
+-- 	var_aux INT;
+-- 	vet_aux INT[];
+-- BEGIN
+-- 	RAISE NOTICE 'slice igual a 0 sobre vetor';
+-- 	FOREACH var_aux IN ARRAY vetor LOOP
+-- 		RAISE NOTICE '%', var_aux;
+-- 	END LOOP;
+-- 	RAISE NOTICE '-------------------';
+-- 	RAISE NOTICE 'Slice igual a 1 sobre vetor';
+-- 	FOREACH vet_aux SLICE 1 IN ARRAY vetor LOOP
+-- 		RAISE NOTICE '%', vet_aux;
+-- 		FOREACH var_aux IN ARRAY vet_aux LOOP
+-- 			RAISE NOTICE '%', var_aux;
+-- 		END LOOP;
+-- 	END LOOP;
+-- 	RAISE NOTICE '-------------------';
+-- 	RAISE NOTICE 'matriz, slice 0';
+-- 	FOREACH var_aux IN ARRAY matriz LOOP
+-- 		RAISE NOTICE '%', var_aux;
+-- 	END LOOP;
+-- 	RAISE NOTICE 'matriz, slice 1';
+-- 	FOREACH vet_aux SLICE 1 IN ARRAY matriz LOOP
+-- 		RAISE NOTICE '%', vet_aux;
+-- 	END LOOP;
+-- 	RAISE NOTICE 'matriz, slice 2';
+-- 	FOREACH vet_aux SLICE 3 IN ARRAY matriz LOOP
+-- 		RAISE NOTICE '%', vet_aux;
+-- 	END LOOP;
+-- END;
+-- $$
+
 --foreach, iterando sobre os elementos de um array
 -- DO
 -- $$
